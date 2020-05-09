@@ -55,8 +55,8 @@ public abstract class JobIntentService extends Service {
         /* access modifiers changed from: package-private */
         public abstract void enqueueWork(Intent intent);
 
-        WorkEnqueuer(Context context, ComponentName cn) {
-            this.mComponentName = cn;
+        WorkEnqueuer(Context context, ComponentName cn2) {
+            this.mComponentName = cn2;
         }
 
         /* access modifiers changed from: package-private */
@@ -86,13 +86,13 @@ public abstract class JobIntentService extends Service {
         private final PowerManager.WakeLock mRunWakeLock;
         boolean mServiceProcessing;
 
-        CompatWorkEnqueuer(Context context, ComponentName cn) {
-            super(context, cn);
+        CompatWorkEnqueuer(Context context, ComponentName cn2) {
+            super(context, cn2);
             this.mContext = context.getApplicationContext();
             PowerManager pm = (PowerManager) context.getSystemService("power");
-            this.mLaunchWakeLock = pm.newWakeLock(1, cn.getClassName() + ":launch");
+            this.mLaunchWakeLock = pm.newWakeLock(1, cn2.getClassName() + ":launch");
             this.mLaunchWakeLock.setReferenceCounted(false);
-            this.mRunWakeLock = pm.newWakeLock(1, cn.getClassName() + ":run");
+            this.mRunWakeLock = pm.newWakeLock(1, cn2.getClassName() + ":run");
             this.mRunWakeLock.setReferenceCounted(false);
         }
 
@@ -242,8 +242,8 @@ public abstract class JobIntentService extends Service {
         private final JobInfo mJobInfo;
         private final JobScheduler mJobScheduler;
 
-        JobWorkEnqueuer(Context context, ComponentName cn, int jobId) {
-            super(context, cn);
+        JobWorkEnqueuer(Context context, ComponentName cn2, int jobId) {
+            super(context, cn2);
             ensureJobId(jobId);
             this.mJobInfo = new JobInfo.Builder(jobId, this.mComponentName).setOverrideDeadline(0).build();
             this.mJobScheduler = (JobScheduler) context.getApplicationContext().getSystemService("jobscheduler");
@@ -367,17 +367,17 @@ public abstract class JobIntentService extends Service {
         }
     }
 
-    static WorkEnqueuer getWorkEnqueuer(Context context, ComponentName cn, boolean hasJobId, int jobId) {
-        WorkEnqueuer we = sClassWorkEnqueuer.get(cn);
+    static WorkEnqueuer getWorkEnqueuer(Context context, ComponentName cn2, boolean hasJobId, int jobId) {
+        WorkEnqueuer we = sClassWorkEnqueuer.get(cn2);
         if (we == null) {
             if (Build.VERSION.SDK_INT < 26) {
-                we = new CompatWorkEnqueuer(context, cn);
+                we = new CompatWorkEnqueuer(context, cn2);
             } else if (!hasJobId) {
                 throw new IllegalArgumentException("Can't be here without a job id");
             } else {
-                we = new JobWorkEnqueuer(context, cn, jobId);
+                we = new JobWorkEnqueuer(context, cn2, jobId);
             }
-            sClassWorkEnqueuer.put(cn, we);
+            sClassWorkEnqueuer.put(cn2, we);
         }
         return we;
     }

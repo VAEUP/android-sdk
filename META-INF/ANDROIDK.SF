@@ -1,16 +1,16 @@
 Signature-Version: 1.0
 Created-By: 1.0 (Android)
-SHA1-Digest-Manifest: aSSXdoc+J4LwkH6Cog2phLS6x58=
+SHA1-Digest-Manifest: QJ7S3pZ/KhHflLZ0Uv/vI8bW72k=
 X-Android-APK-Signed: 2, 3
 
 Name: AndroidManifest.xml
-SHA1-Digest: aE581enHkXJHLkxATEAcuh+j+FE=
+SHA1-Digest: R5C0hJcWCIA8/jhJhXTraafkmAk=
 
 Name: assets/vaeup_logo_plain.png
 SHA1-Digest: jSC4i35zDCBDEPWJs3DYWnKHGek=
 
 Name: classes.dex
-SHA1-Digest: Kko1XgWLmN/97u1ACaJmvmhgBfE=
+SHA1-Digest: 3/Ez17hiyMImrV57DNmzTlMyXic=
 
 Name: res/anim/abc_fade_in.xml
 SHA1-Digest: xuSWnlSNBpBW5KZZ6AqoycVG4bY=

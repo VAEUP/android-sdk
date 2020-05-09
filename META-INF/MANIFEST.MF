@@ -1,13 +1,13 @@
 Manifest-Version: 1.0
 
 Name: AndroidManifest.xml
-SHA1-Digest: WP5rooxeZjOnMnHoY3WJVr2pfAs=
+SHA1-Digest: 0Zdj6hXx7duv+ij31eHeeORLo58=
 
 Name: assets/vaeup_logo_plain.png
 SHA1-Digest: +iwWrZVpBVUQeSVjUlioiobdt3Q=
 
 Name: classes.dex
-SHA1-Digest: iZQSaq5m2oMsz2kDss4nrJo8IFg=
+SHA1-Digest: ObmhCo5GPqdg0IF6rBrRRUwQBu4=
 
 Name: res/anim/abc_fade_in.xml
 SHA1-Digest: AcuBNEx7Jg8K6XCieCSQfQAJk5Q=
